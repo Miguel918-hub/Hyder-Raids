@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pegar Bot</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyM');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: 'Courier New', monospace;
+      color: #fff;
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: brightness(0.7);
+    }
+
+    h1 {
+      font-size: 2.5em;
+      text-shadow: 2px 2px 10px red;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      background-color: #8b0000;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 10px red;
+      margin: 10px;
+    }
+
+    .button:hover {
+      background-color: #ff0000;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px red;
+    }
+
+    #modoSelecionar {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Estilos modo celular */
+    .celular h1 {
+      font-size: 1.8em;
+    }
+
+    .celular .button {
+      font-size: 16px;
+      padding: 12px 25px;
+    }
+
+    /* Estilos modo computador */
+    .computador h1 {
+      font-size: 3em;
+    }
+
+    .computador .button {
+      font-size: 20px;
+      padding: 18px 40px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔥 Selecione seu dispositivo 🔥</h1>
+
+  <div id="modoSelecionar">
+    <button class="button" onclick="definirModo('celular')">📱 Celular</button>
+    <button class="button" onclick="definirModo('computador')">💻 Computador</button>
+  </div>
+
+  <div id="conteudoPrincipal" class="hidden">
+    <h1>⚠️ Área Restrita ⚠️</h1>
+    <button class="button" onclick="pedirSenha()">Pegar Bot</button>
+  </div>
+
+  <script>
+    function definirModo(modo) {
+      document.body.classList.remove("celular", "computador");
+      document.body.classList.add(modo);
+
+      document.getElementById("modoSelecionar").classList.add("hidden");
+      document.getElementById("conteudoPrincipal").classList.remove("hidden");
+    }
+
+    function pedirSenha() {
+      const senha = prompt("Digite a senha para liberar o bot:");
+      if (senha === "6669") {
+        window.open("https://discord.com/oauth2/authorize?client_id=1314802010935132250&scope=bot%20applications.commands&permissions=8", "_blank");
+      } else {
+        alert("❌ Senha incorreta!");
+      }
+    }
+  </script>
+</body>
+</html>
